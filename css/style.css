@@ -1,0 +1,46 @@
+.rounded {
+    border-radius: 12px !important;
+}
+
+pre {
+    min-height:100%;
+    max-height:60vh;
+    margin: 0 !important;
+}
+
+pre code {
+    border-left: 0 transparent !important;
+    box-shadow: 0px 0px 0px 1px #dfdfdf !important;
+}
+
+a {
+    color: #eda31d;
+}
+
+.btn-primary {
+    background-color: #ffdf7f;
+    border-color: #ffdf7f;
+}
+
+.navbar-brand {
+    background-color: #ffcd2d;
+    color: white;
+    padding: 5px 10px;
+    text-shadow: 0 0 5px #ffcf9e7f;
+    transition: background-color .2s, text-shadow .2s;
+}
+
+.navbar-brand:hover {
+    background: #ffc107;
+    color: white;
+    text-shadow: 0 0 10px #eee;
+}
+
+.navbar ul {
+    margin:0;
+}
+
+.nav-item {
+    float:left;
+    list-style: none;
+}
