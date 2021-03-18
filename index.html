@@ -11,9 +11,7 @@
     <link rel="icon" href="img/favicon32.png" sizes="32x32" type="image/png">
     <meta name="theme-color" content="#7952b3">
     
-    <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-   
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/prism-coy.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
@@ -34,9 +32,10 @@
     </nav>
 </div>
 
-<main class="container">
+<main class="container-fluid" id="main-container">
+  <div class="container">
 <div class="row">
-  <div class="bg-light p-5 rounded col">
+  <div class="col">
   <table style="height:100%;">
   <tr>
   <td>
@@ -45,20 +44,23 @@
 The Aument language is a work-in-progress dynamically-typed scripting language with
 </p>
 <ul>
-<li><b>performance first:</b> this scripting language is designed with performance in mind.</li>
-<li><b>fast development time:</b> like Python and Javascript, you can write code and run it directly.</li>
+<li><b>performance first:</b> this scripting language is designed with performance in mind. The interpreter is fast and programs can be compiled into even faster native binaries.</li>
+<li><b>fast development time:</b> Aument is a dynamic scripting language like Python and Javascript. You can prototype your software fast and run them directly.</li>
 <li><b>fast deployment:</b> once finished, you can compile your code into a native, lightweight executable. You don't even need any external runtime to run it!</li>
 </ul>
     <p>
         <a class="btn btn-lg btn-primary" href="https://github.com/aument-lang/aument/releases" role="button">Latest release &raquo;</a>
-        <a class="btn btn-lg btn-outline-secondary" href="https://github.com/aument-lang/aument" role="button">View source code</a>
+        <a class="btn btn-lg btn-outline-secondary" href="https://github.com/aument-lang/aument" role="button">Source code</a>
     </p>
-    <p>(<a href="https://github.com/aument-lang/aument/blob/main/docs/tour.md">Read a brief tour of Aument</a>)</p>
+    <p>(<a href="/tour">Read a brief tour of Aument</a>)</p>
   </td>
   </tr>
   </table>
   </div>
     <div class="col col-4">
+      <table style="height:100%;width:100%">
+      <tr>
+      <td>
 <pre><code class="language-">class Human {
 	var name;
 }
@@ -87,15 +89,17 @@ say(alice);
 say(bob);
 say(cat);
 </code></pre>
+</td></tr></table>
     </div>
+  </div>
 </div>
 </main>
     <script src="https://prismjs.com/prism.js"></script>
 <footer class="bd-footer p-3 p-md-5 text-center">
   <div class="container">
     <ul class="bd-footer-links ps-0 mb-3">
-      <li class="d-inline-block"><a href="https://github.com/aument-lang/aument">Github</a></li>
-      <li class="d-inline-block ms-3"><a href="https://gitlab.com/aument-lang/aument">Gitlab (mirror)</a></li>
+      <li class="d-inline-block"><a href="https://github.com/aument-lang/aument">GitHub</a></li>
+      <li class="d-inline-block ms-3"><a href="https://gitlab.com/aument-lang/aument">GitLab (mirror)</a></li>
     </ul>
     <p class="mb-0">Language is licensed under Apache 2.0, website licensed GPL-v3.</p>
     <p class="mb-0"><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
