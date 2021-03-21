@@ -28,6 +28,19 @@
 </div>
 
 <main class='container'>
+  <div class='row'>
+  <div class='col-4'>
+  <div id='toc-col'>
+  <h1 style='text-align:center;'>Table of contents</h1>
+  <div id='toc'>
+  <p>(Table of contents go here.)</p>
+  </div>
+  <noscript>
+  <p>Enable JavaScript.</p>
+  </noscript>
+  </div>
+  </div>
+  <div class='col-8' id='content'>
 <h1>A brief tour of Aument</h1>
 <h2>Primitive values</h2>
 <p>Like many scripting languages, Aument supports the usual core data types: integers (<code class='language-'>3</code>), floats (<code class='language-'>3.14</code>), strings (<code class='language-'>"Hello World"</code>), booleans (<code class='language-'>true</code> and <code class='language-'>false</code>) and a none value (<code class='language-'>nil</code>).</p>
@@ -45,7 +58,7 @@
 <p>You can define arrays by using the literal syntax:</p>
 <pre><code class='language-'>a = [1,2,3];
 </code></pre>
-<p>Tuples are like statically sized arrays:</p>
+<p>Tuples are statically sized arrays, you cannot remove items from it:</p>
 <pre><code class='language-'>a = #[1,2,3];
 </code></pre>
 <p>You can index and set an item in an array or a tuple. Like C and Python, Aument's collections begin at index 0.</p>
@@ -58,7 +71,7 @@ a[0]; // 100
 <pre><code class='language-'>pi = 3.14;
 greeting = &quot;Hello World!&quot;;
 </code></pre>
-<p>Note that all variables are local to the function they belong in. You cannot use variables outside of that function:</p>
+<p>All variables are local to the function they belong in. You cannot use variables outside of that function:</p>
 <pre><code class='language-'>y = 1;
 x = 0;
 def local() {
@@ -85,7 +98,7 @@ print y; // 0
     print &quot;string is true&quot;;
 }
 </code></pre>
-<p>See the <a href="./au-stdlib.md#bool"><code class='language-'>bool</code> function documentation</a> for boolean conversion.</p>
+<p>See the <a href="./au-stdlib.md#bool"><code class='language-'>bool</code> function documentation</a> for more details on boolean conversion.</p>
 <p>Aument also has while loops:</p>
 <pre><code class='language-'>while true {
     print &quot;Forever&quot;;
@@ -105,8 +118,8 @@ print y; // 0
 }
 print y(1); // 3
 </code></pre>
-<p>Aument's standard library provides some useful built-in functions. See the <a href="./au-stdlib.md">stdlib reference manual</a> for more details.</p>
-<p>Functions have names that are fixed at parse time, and the number of arguments they take is always constant. If you're trying to call or define a function, and Aument can't find it,</p>
+<p>Aument's standard library provides some useful built-in functions. See its <a href="./au-stdlib.md">reference manual</a> for more details.</p>
+<p>Functions have names that are fixed at parse time, and the number of arguments they take is always constant. If you're trying to call or define a function, and Aument can't find it:</p>
 <pre><code class='language-'>def mistype() {}
 misttype();
 </code></pre>
@@ -119,7 +132,7 @@ misttype();
 def a(){}
 </code></pre>
 <h2>Classes</h2>
-<p>You can define a compound data-type, a <em>class</em> using the <code class='language-'>class</code> keyword:</p>
+<p>You can define a compound data type, a <em>class</em> using the <code class='language-'>class</code> keyword:</p>
 <pre><code class='language-'>class Human {
     var name;
 }
@@ -132,17 +145,18 @@ def a(){}
 <pre><code class='language-'>alice = new Human;
 </code></pre>
 <p>Just like functions, if you try to use a undeclared class, it will error out after parsing.</p>
-<h3>Methods</h3>
+<h3>Methods and private variables</h3>
 <p>To modify or access a private variable in a class instance, you'll need to declare a <em>method</em>, a function that can only be called if the first argument's type matches that of the class:</p>
 <pre><code class='language-'>def (self: Human) init(name) {
     @name = name;
 }
 </code></pre>
-<p>Note that you can't access private variables of imported classes.</p>
 <p>Here, we declare the function <code class='language-'>init</code>, that takes 2 arguments, <code class='language-'>self</code> (a <code class='language-'>Human</code> class instance), and <code class='language-'>name</code> (any dynamically typed variable). You can call <code class='language-'>init</code> like any other function:</p>
 <pre><code class='language-'>init(alice, &quot;Alice&quot;);
 </code></pre>
-<p>Class functions can also be dynamically dispatched:</p>
+<p>You cannot access private variables of imported classes.</p>
+<h4>Dynamic dispatch</h4>
+<p>Methods can also be dynamically dispatched:</p>
 <pre><code class='language-'>def (self: Human) say() {
     print &quot;I'm &quot;, @name, &quot;\n&quot;;
 }
@@ -154,9 +168,11 @@ cat = new Cat;
 say(alice);
 say(cat);
 </code></pre>
-<p>Prints out:</p>
+<p>Based on the type of the first argument, an Aument program will choose which function to call at runtime. When we call <code class='language-'>say(alice);</code>, since the program sees that we've passed a <code class='language-'>Human</code> type, it chooses to forward the call to the first <code class='language-'>say</code> function, which prints out:</p>
 <pre><code class='language-'>I'm Alice
-meow!
+</code></pre>
+<p>Likewise, when we call <code class='language-'>say(cat);</code>, it dispatches the call to the second <code class='language-'>say</code> function, giving us:</p>
+<pre><code class='language-'>meow!
 </code></pre>
 <h3>Dot calls</h3>
 <p>You can use the dot operator <code class='language-'>.</code> to call a function, such that the left-hand side of the operation is the first argument of the function:</p>
@@ -166,7 +182,7 @@ meow!
 <pre><code class='language-'>say(alice);
 </code></pre>
 <h3>Dot binding</h3>
-<p>You can also use the dot operator to bind an argument to a function. Note that bound functions must be called using the <code class='language-'>.(</code> operator:</p>
+<p>You can also use the dot operator to bind an argument to a function. Bound functions must be called using the <code class='language-'>.(</code> operator:</p>
 <pre><code class='language-'>def add(x,y){ return x + y; }
 add_5 = (5).add;
 print add_5.(10);
@@ -174,20 +190,20 @@ print add_5.(10);
 <p>Outputs:</p>
 <pre><code class='language-'>15
 </code></pre>
-<p>You can create an unbounded function value:</p>
+<p>By omitting the left-hand side in a dot binding expression, you can create an unbounded function value:</p>
 <pre><code class='language-'>def double(x) { return x * 2; }
 op = .double;
 print op.(10);
 </code></pre>
 <h2>Modules</h2>
-<p>You can import files using the <code class='language-'>import</code> statement. Note that all files are executed separately and you cannot directly use an imported file's variables/functions (unless exported).</p>
+<p>You can import files using the <code class='language-'>import</code> statement.</p>
 <pre><code class='language-'>// importee.au
 print &quot;Hello World\n&quot;;
 </code></pre>
 <pre><code class='language-'>// importer.au
 import &quot;./importee.au&quot;; // prints out Hello World
 </code></pre>
-<p>To export a function, use the <code class='language-'>export</code> statement:</p>
+<p>All files are executed separately and you cannot directly use an imported file's variables/functions (unless exported). To export a function, use the <code class='language-'>export</code> statement:</p>
 <pre><code class='language-'>// importee.au
 export def random() {
     return 4;
@@ -202,10 +218,28 @@ export def random() {
 <pre><code class='language-'>import &quot;importee.au&quot; as module;
 print module::random(); // =&gt; 4
 </code></pre>
+<h3>Importing native dynamically-linked library (DLLs)</h3>
 <p>You can also import a dynamically linked library. On Unix systems, these files end with <code class='language-'>.so</code>. On Windows, these files end with <code class='language-'>.dll</code>. See <a href="/tests/dl-module"><code class='language-'>tests/dl-module</code></a> for an example of importing a C library from Aument.</p>
+<p>If a DLL supports subpath imports, the importer can specify which subpath they want to import:</p>
+<pre><code class='language-'>import &quot;./libmodule.dll:subpath&quot;;
+</code></pre>
+<p>The example above imports the module in the library <code class='language-'>./libmodule.dll</code> specified by the subpath <code class='language-'>subpath</code>.</p>
+  </div>
+  </div>
+  <footer class='bd-footer p-3 p-md-5 text-center'>
+  <div class='container'>
+    <ul class='bd-footer-links ps-0 mb-3'>
+      <li class='d-inline-block'><a href='https://github.com/aument-lang/aument'>GitHub</a></li>
+      <li class='d-inline-block ms-3'><a href='https://gitlab.com/aument-lang/aument'>GitLab (mirror)</a></li>
+    </ul>
+    <p class='mb-0'>Language is licensed under Apache 2.0, website licensed GPL-v3.</p>
+    <p class='mb-0'><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
+  </div>
+</footer>
 </main>
 
 <script src='https://prismjs.com/prism.js'></script>
+<script src='../js/toc.js'></script>
 
 </body>
 </html>

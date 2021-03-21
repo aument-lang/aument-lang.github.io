@@ -53,3 +53,18 @@ a {
     padding: 40px 0;
     background: var(--bs-light);
 }
+
+#toc-col {
+    position: sticky;
+    top: 10px;
+}
+
+#toc ul {
+    list-style-type: none;
+    padding:0;
+}
+
+#toc .l1, #toc .l2 { font-weight: bold; }
+#toc .l2 { margin-left: 10px; }
+#toc .l3 { margin-left: 20px; }
+#toc .l4 { margin-left: 30px; }
