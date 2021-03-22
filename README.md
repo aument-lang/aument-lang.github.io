@@ -4,4 +4,4 @@ Welcome to the Aument language's official website (powered by Github).
 
 ## License
 
-GPL-v3.
+MIT License

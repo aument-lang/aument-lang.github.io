@@ -59,7 +59,7 @@ $tour_cont
       <li class='d-inline-block'><a href='https://github.com/aument-lang/aument'>GitHub</a></li>
       <li class='d-inline-block ms-3'><a href='https://gitlab.com/aument-lang/aument'>GitLab (mirror)</a></li>
     </ul>
-    <p class='mb-0'>Language is licensed under Apache 2.0, website licensed GPL-v3.</p>
+    <p class='mb-0'>Language is licensed under Apache 2.0.</p>
     <p class='mb-0'><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
   </div>
 </footer>
