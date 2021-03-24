@@ -1,84 +1,79 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta name='description' content='A brief tour of the Aument Language.'>
-    <title>Tour of the Aument language</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A tour of the Aument language.">
+    <title>A tour of the Aument language</title>
 
-    <link rel='icon' href='../img/favicon16.png' sizes='16x16' type='image/png'>
-    <link rel='icon' href='../img/favicon32.png' sizes='32x32' type='image/png'>
-    <meta name='theme-color' content='#ffcd2d'>
+    <link rel="icon" href="../img/favicon16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../img/favicon32.png" sizes="32x32" type="image/png">
+    <meta name="theme-color" content="#ffcd2d">
     
-    <link href='../css/bootstrap.min.css' rel='stylesheet'>
-    <link href='../css/prism.css' rel='stylesheet'>
-    <link href='../css/style.css' rel='stylesheet'>
-    <link href='../css/content.css' rel='stylesheet'>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/content.css" rel="stylesheet">
   </head>
   <body>
-
-
-<div class='container container-sm' style='margin: 20px auto; padding:0;'>
-    <nav class='navbar'>
-      <div class='container-fluid'>
-        <a class='navbar-brand' href='/'><b>aument</b></a>
+    
+<div class="container container-sm" style="margin: 20px auto; padding:0;">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><b>aument</b></a>
         <ul>
-            <li class='nav-item'>
-                <a class='nav-link active' aria-current='page' href='/'>Home</a>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li class='nav-item'><a class='nav-link' href='/updates'>Updates</a></li>
-            <li class='nav-item'><a class='nav-link' href='/about'>About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/updates">Updates</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
         </ul>
       </div>
     </nav>
 </div>
 
-<main class='container'>
-  <div class='row'>
-  <div class='col-4'>
-  <div id='toc-col'>
-  <h1 style='text-align:center;'>Table of contents</h1>
-  <div id='toc'>
-  <p>(Table of contents go here.)</p>
-  </div>
-  <noscript>
-  <p>Enable JavaScript.</p>
-  </noscript>
-  </div>
-  </div>
-  <div class='col-8' id='content'>
-<h1>A brief tour of Aument</h1>
-<h2>Primitive values</h2>
-<p>Like many scripting languages, Aument supports the usual core data types: integers (<code class='language-'>3</code>), floats (<code class='language-'>3.14</code>), strings (<code class='language-'>"Hello World"</code>), booleans (<code class='language-'>true</code> and <code class='language-'>false</code>) and a none value (<code class='language-'>nil</code>).</p>
-<p>For strings, standard escape sequences work (only <code class='language-'>\n</code> is implemented however).</p>
-<p>You can also do some binary operations, add <code class='language-'>+</code>, subtraction <code class='language-'>-</code>, multiply <code class='language-'>*</code>, division <code class='language-'>/</code> and modulo <code class='language-'>%</code> are currently supported.</p>
-<pre><code class='language-'>1 + 1; // Results in 2
+<main class="container">
+  <div class="row">
+    <div class='col-4'>
+      <div id='toc-col'>
+        <h1 style='text-align:center;'>Table of contents</h1>
+        <div id='toc'>
+        <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Importing_native_dynamically-linked_library_(DLLs)">Importing native dynamically-linked library (DLLs)</a></li></ul></li></ul></p>
+        </div>
+      </div>
+    </div>
+    <div class='col-8' id='content'><h1 id="A_brief_tour_of_Aument">A brief tour of Aument</h1>
+<h2 id="Primitive_values">Primitive values</h2>
+<p>Like many scripting languages, Aument supports the usual core data types: integers (<code class='language-au'>3</code>), floats (<code class='language-au'>3.14</code>), strings (<code class='language-au'>&quot;Hello World&quot;</code>), booleans (<code class='language-au'>true</code> and <code class='language-au'>false</code>) and a none value (<code class='language-au'>nil</code>).</p>
+<p>For strings, standard escape sequences work (only <code class='language-au'>\n</code> is implemented however).</p>
+<p>You can also do some binary operations, add <code class='language-au'>+</code>, subtraction <code class='language-au'>-</code>, multiply <code class='language-au'>*</code>, division <code class='language-au'>/</code> and modulo <code class='language-au'>%</code> are currently supported.</p>
+<pre><code class='language-au'>1 + 1; // Results in 2
 </code></pre>
-<p>Comparisons (<code class='language-'>&lt;</code>, <code class='language-'>&gt;</code>, <code class='language-'>&lt;=</code>, <code class='language-'>&gt;=</code>, <code class='language-'>==</code>, <code class='language-'>!=</code> operators) work as you'd expect:</p>
-<pre><code class='language-'>1 &lt; 2; // (true)
+<p>Comparisons (<code class='language-au'>&lt;</code>, <code class='language-au'>&gt;</code>, <code class='language-au'>&lt;=</code>, <code class='language-au'>&gt;=</code>, <code class='language-au'>==</code>, <code class='language-au'>!=</code> operators) work as you'd expect:</p>
+<pre><code class='language-au'>1 &lt; 2; // (true)
 </code></pre>
-<p>You can also use boolean operators (logical and <code class='language-'>&amp;&amp;</code> and logical or <code class='language-'>||</code>):</p>
-<pre><code class='language-'>true &amp;&amp; false; // false
+<p>You can also use boolean operators (logical and <code class='language-au'>&amp;&amp;</code> and logical or <code class='language-au'>||</code>):</p>
+<pre><code class='language-au'>true &amp;&amp; false; // false
 </code></pre>
-<h2>Arrays and tuples</h2>
+<h2 id="Arrays_and_tuples">Arrays and tuples</h2>
 <p>You can define arrays by using the literal syntax:</p>
-<pre><code class='language-'>a = [1,2,3];
+<pre><code class='language-au'>a = [1,2,3];
 </code></pre>
 <p>Tuples are statically sized arrays, you cannot remove items from it:</p>
-<pre><code class='language-'>a = #[1,2,3];
+<pre><code class='language-au'>a = #[1,2,3];
 </code></pre>
 <p>You can index and set an item in an array or a tuple. Like C and Python, Aument's collections begin at index 0.</p>
-<pre><code class='language-'>a[0]; // 1
+<pre><code class='language-au'>a[0]; // 1
 a[0] = 100;
 a[0]; // 100
 </code></pre>
-<h2>Variables</h2>
+<h2 id="Variables">Variables</h2>
 <p>You can assign values into variables like so:</p>
-<pre><code class='language-'>pi = 3.14;
+<pre><code class='language-au'>pi = 3.14;
 greeting = &quot;Hello World!&quot;;
 </code></pre>
 <p>All variables are local to the function they belong in. You cannot use variables outside of that function:</p>
-<pre><code class='language-'>y = 1;
+<pre><code class='language-au'>y = 1;
 x = 0;
 def local() {
     y = 0;
@@ -87,83 +82,83 @@ def local() {
 local(); // 1
 print y; // 0
 </code></pre>
-<p>This includes the top-level scope as well. In the example above, the function <code class='language-'>local</code> cannot access the variable <code class='language-'>x</code>.</p>
-<h3>Dynamic types, static names</h3>
+<p>This includes the top-level scope as well. In the example above, the function <code class='language-au'>local</code> cannot access the variable <code class='language-au'>x</code>.</p>
+<h3 id="Dynamic_types,_static_names">Dynamic types, static names</h3>
 <p>Identifiers, function names and class names in Aument are static: they are resolved at parsing time. As such, the concept of global variables do not exist in Aument.</p>
 <p>In order to share states through function calls, you'll have to pass variables directly or wrap them in a class.</p>
-<h2>Control Flow</h2>
-<p>You can use <code class='language-'>if</code> statements like how it works in C. Notice that there are no brackets surrounding the condition.</p>
-<pre><code class='language-'>if 1 + 1 == 2 {
+<h2 id="Control_Flow">Control Flow</h2>
+<p>You can use <code class='language-au'>if</code> statements like how it works in C. Notice that there are no brackets surrounding the condition.</p>
+<pre><code class='language-au'>if 1 + 1 == 2 {
     print &quot;The computer is working normally.&quot;;
 } else {
     print &quot;The computer is broken!&quot;;
 }
 </code></pre>
-<p>The if statement checks if the condition is "truthy", converting the condition into a boolean and checks if it's true. Statements like this are valid:</p>
-<pre><code class='language-'>if &quot;string&quot; {
+<p>The if statement checks if the condition is &quot;truthy&quot;, converting the condition into a boolean and checks if it's true. Statements like this are valid:</p>
+<pre><code class='language-au'>if &quot;string&quot; {
     print &quot;string is true&quot;;
 }
 </code></pre>
-<p>See the <a href="./au-stdlib.md#bool"><code class='language-'>bool</code> function documentation</a> for more details on boolean conversion.</p>
+<p>See the <a href="./au-stdlib.md#bool"><code class='language-au'>bool</code> function documentation</a> for more details on boolean conversion.</p>
 <p>Aument also has while loops:</p>
-<pre><code class='language-'>while true {
+<pre><code class='language-au'>while true {
     print &quot;Forever&quot;;
 }
 </code></pre>
-<h2>Input/output</h2>
-<p>To print something to the screen, use the <code class='language-'>print</code> statement:</p>
-<pre><code class='language-'>print &quot;Hello World!\n&quot;;
+<h2 id="Input/output">Input/output</h2>
+<p>To print something to the screen, use the <code class='language-au'>print</code> statement:</p>
+<pre><code class='language-au'>print &quot;Hello World!\n&quot;;
 </code></pre>
 <p>You can also print multiple objects:</p>
-<pre><code class='language-'>print &quot;The answer to life, universe and everything is &quot;, 42, &quot;\n&quot;;
+<pre><code class='language-au'>print &quot;The answer to life, universe and everything is &quot;, 42, &quot;\n&quot;;
 </code></pre>
-<h2>Functions</h2>
-<p>To define a function, use the <code class='language-'>def</code> statement. Inside functions, you can use <code class='language-'>return</code> to return a value.</p>
-<pre><code class='language-'>def y(x) {
+<h2 id="Functions">Functions</h2>
+<p>To define a function, use the <code class='language-au'>def</code> statement. Inside functions, you can use <code class='language-au'>return</code> to return a value.</p>
+<pre><code class='language-au'>def y(x) {
     return x + 2;
 }
 print y(1); // 3
 </code></pre>
 <p>Aument's standard library provides some useful built-in functions. See its <a href="./au-stdlib.md">reference manual</a> for more details.</p>
 <p>Functions have names that are fixed at parse time, and the number of arguments they take is always constant. If you're trying to call or define a function, and Aument can't find it:</p>
-<pre><code class='language-'>def mistype() {}
+<pre><code class='language-au'>def mistype() {}
 misttype();
 </code></pre>
 <p>It will error out directly after parsing:</p>
-<pre><code class='language-'>parser error(3) in /tmp/mistype.au: unknown function misttype
+<pre><code class='language-au'>parser error(3) in /tmp/mistype.au: unknown function misttype
 2 | misttype();
 </code></pre>
 <p>Of course, you can use a function that is declared later in the source file:</p>
-<pre><code class='language-'>a();
+<pre><code class='language-au'>a();
 def a(){}
 </code></pre>
-<h2>Classes</h2>
-<p>You can define a compound data type, a <em>class</em> using the <code class='language-'>class</code> keyword:</p>
-<pre><code class='language-'>class Human {
+<h2 id="Classes">Classes</h2>
+<p>You can define a compound data type, a <em>class</em> using the <code class='language-au'>class</code> keyword:</p>
+<pre><code class='language-au'>class Human {
     var name;
 }
 </code></pre>
-<p>Here, we define a class named <code class='language-'>Human</code>, that holds a private variable <code class='language-'>name</code>.</p>
+<p>Here, we define a class named <code class='language-au'>Human</code>, that holds a private variable <code class='language-au'>name</code>.</p>
 <p>You can define a empty class like so:</p>
-<pre><code class='language-'>class EmptyClass;
+<pre><code class='language-au'>class EmptyClass;
 </code></pre>
-<p>Classes are like any other value. You can create an empty one using the <code class='language-'>new</code> keyword:</p>
-<pre><code class='language-'>alice = new Human;
+<p>Classes are like any other value. You can create an empty one using the <code class='language-au'>new</code> keyword:</p>
+<pre><code class='language-au'>alice = new Human;
 </code></pre>
 <p>Just like functions, if you try to use a undeclared class, it will error out after parsing.</p>
-<h3>Methods and private variables</h3>
+<h3 id="Methods_and_private_variables">Methods and private variables</h3>
 <p>To modify or access a private variable in a class instance, you'll need to declare a <em>method</em>, a function that can only be called if the first argument's type matches that of the class:</p>
-<pre><code class='language-'>def (self: Human) init(name) {
+<pre><code class='language-au'>def (self: Human) init(name) {
     @name = name;
 }
 </code></pre>
-<p>Here, we declare the function <code class='language-'>init</code>, that takes 2 arguments, <code class='language-'>self</code> (a <code class='language-'>Human</code> class instance), and <code class='language-'>name</code> (any dynamically typed variable). You can call <code class='language-'>init</code> like any other function:</p>
-<pre><code class='language-'>init(alice, &quot;Alice&quot;);
+<p>Here, we declare the function <code class='language-au'>init</code>, that takes 2 arguments, <code class='language-au'>self</code> (a <code class='language-au'>Human</code> class instance), and <code class='language-au'>name</code> (any dynamically typed variable). You can call <code class='language-au'>init</code> like any other function:</p>
+<pre><code class='language-au'>init(alice, &quot;Alice&quot;);
 </code></pre>
 <p>You cannot access private variables of imported classes.</p>
-<h4>Dynamic dispatch</h4>
+<h4 id="Dynamic_dispatch">Dynamic dispatch</h4>
 <p>Methods can also be dynamically dispatched:</p>
-<pre><code class='language-'>def (self: Human) say() {
+<pre><code class='language-au'>def (self: Human) say() {
     print &quot;I'm &quot;, @name, &quot;\n&quot;;
 }
 class Cat {}
@@ -174,80 +169,79 @@ cat = new Cat;
 say(alice);
 say(cat);
 </code></pre>
-<p>Based on the type of the first argument, an Aument program will choose which function to call at runtime. When we call <code class='language-'>say(alice);</code>, since the program sees that we've passed a <code class='language-'>Human</code> type, it chooses to forward the call to the first <code class='language-'>say</code> function, which prints out:</p>
-<pre><code class='language-'>I'm Alice
+<p>Based on the type of the first argument, an Aument program will choose which function to call at runtime. When we call <code class='language-au'>say(alice);</code>, since the program sees that we've passed a <code class='language-au'>Human</code> type, it chooses to forward the call to the first <code class='language-au'>say</code> function, which prints out:</p>
+<pre><code class='language-au'>I'm Alice
 </code></pre>
-<p>Likewise, when we call <code class='language-'>say(cat);</code>, it dispatches the call to the second <code class='language-'>say</code> function, giving us:</p>
-<pre><code class='language-'>meow!
+<p>Likewise, when we call <code class='language-au'>say(cat);</code>, it dispatches the call to the second <code class='language-au'>say</code> function, giving us:</p>
+<pre><code class='language-au'>meow!
 </code></pre>
-<h3>Dot calls</h3>
-<p>You can use the dot operator <code class='language-'>.</code> to call a function, such that the left-hand side of the operation is the first argument of the function:</p>
-<pre><code class='language-'>alice.say();
+<h3 id="Dot_calls">Dot calls</h3>
+<p>You can use the dot operator <code class='language-au'>.</code> to call a function, such that the left-hand side of the operation is the first argument of the function:</p>
+<pre><code class='language-au'>alice.say();
 </code></pre>
 <p>Is equivalent to:</p>
-<pre><code class='language-'>say(alice);
+<pre><code class='language-au'>say(alice);
 </code></pre>
-<h3>Dot binding</h3>
-<p>You can also use the dot operator to bind an argument to a function. Bound functions must be called using the <code class='language-'>.(</code> operator:</p>
-<pre><code class='language-'>def add(x,y){ return x + y; }
+<h3 id="Dot_binding">Dot binding</h3>
+<p>You can also use the dot operator to bind an argument to a function. Bound functions must be called using the <code class='language-au'>.(</code> operator:</p>
+<pre><code class='language-au'>def add(x,y){ return x + y; }
 add_5 = (5).add;
 print add_5.(10);
 </code></pre>
 <p>Outputs:</p>
-<pre><code class='language-'>15
+<pre><code class='language-au'>15
 </code></pre>
 <p>By omitting the left-hand side in a dot binding expression, you can create an unbounded function value:</p>
-<pre><code class='language-'>def double(x) { return x * 2; }
+<pre><code class='language-au'>def double(x) { return x * 2; }
 op = .double;
 print op.(10);
 </code></pre>
-<h2>Modules</h2>
-<p>You can import files using the <code class='language-'>import</code> statement.</p>
-<pre><code class='language-'>// importee.au
+<h2 id="Modules">Modules</h2>
+<p>You can import files using the <code class='language-au'>import</code> statement.</p>
+<pre><code class='language-au'>// importee.au
 print &quot;Hello World\n&quot;;
 </code></pre>
-<pre><code class='language-'>// importer.au
+<pre><code class='language-au'>// importer.au
 import &quot;./importee.au&quot;; // prints out Hello World
 </code></pre>
-<p>All files are executed separately and you cannot directly use an imported file's variables/functions (unless exported). To export a function, use the <code class='language-'>export</code> statement:</p>
-<pre><code class='language-'>// importee.au
+<p>All files are executed separately and you cannot directly use an imported file's variables/functions (unless exported). To export a function, use the <code class='language-au'>export</code> statement:</p>
+<pre><code class='language-au'>// importee.au
 export def random() {
     return 4;
 }
 </code></pre>
 <p>You can also export a class:</p>
-<pre><code class='language-'>export class Human {
+<pre><code class='language-au'>export class Human {
     val name;
 }
 </code></pre>
 <p>Exported functions and classes are accessible under a <strong>module</strong>. You have to explicitly import a file as a module in order to use it:</p>
-<pre><code class='language-'>import &quot;importee.au&quot; as module;
+<pre><code class='language-au'>import &quot;importee.au&quot; as module;
 print module::random(); // =&gt; 4
 </code></pre>
-<h3>Importing native dynamically-linked library (DLLs)</h3>
-<p>You can also import a dynamically linked library. On Unix systems, these files end with <code class='language-'>.so</code>. On Windows, these files end with <code class='language-'>.dll</code>. See <a href="/tests/dl-module"><code class='language-'>tests/dl-module</code></a> for an example of importing a C library from Aument.</p>
-<p>If the <code class='language-'>.lib</code> extension is used, Aument will load the library with the extension corresponding to the platform's library extension.</p>
+<h3 id="Importing_native_dynamically-linked_library_(DLLs)">Importing native dynamically-linked library (DLLs)</h3>
+<p>You can also import a dynamically linked library. On Unix systems, these files end with <code class='language-au'>.so</code>. On Windows, these files end with <code class='language-au'>.dll</code>. See <a href="/tests/dl-module"><code class='language-au'>tests/dl-module</code></a> for an example of importing a C library from Aument.</p>
+<p>If the <code class='language-au'>.lib</code> extension is used, Aument will load the library with the extension corresponding to the platform's library extension.</p>
 <p>If a DLL supports subpath imports, the importer can specify which subpath they want to import:</p>
-<pre><code class='language-'>import &quot;./libmodule.dll:subpath&quot;;
+<pre><code class='language-au'>import &quot;./libmodule.dll:subpath&quot;;
 </code></pre>
-<p>The example above imports the module in the library <code class='language-'>./libmodule.dll</code> specified by the subpath <code class='language-'>subpath</code>.</p>
+<p>The example above imports the module in the library <code class='language-au'>./libmodule.dll</code> specified by the subpath <code class='language-au'>subpath</code>.</p>
+</div>
   </div>
-  </div>
-  <footer class='bd-footer p-3 p-md-5 text-center'>
-  <div class='container'>
-    <ul class='bd-footer-links ps-0 mb-3'>
-      <li class='d-inline-block'><a href='https://github.com/aument-lang/aument'>GitHub</a></li>
-      <li class='d-inline-block ms-3'><a href='https://gitlab.com/aument-lang/aument'>GitLab (mirror)</a></li>
+</div>
+</main>
+<footer class="bd-footer p-3 p-md-5 text-center">
+  <div class="container">
+    <ul class="bd-footer-links ps-0 mb-3">
+      <li class="d-inline-block"><a href="https://github.com/aument-lang/aument">GitHub</a></li>
+      <li class="d-inline-block ms-3"><a href="https://gitlab.com/aument-lang/aument">GitLab (mirror)</a></li>
     </ul>
-    <p class='mb-0'>Language is licensed under Apache 2.0.</p>
-    <p class='mb-0'><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
+    <p class="mb-0">Language is licensed under Apache 2.0.</p>
+    <p class="mb-0"><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
   </div>
 </footer>
-</main>
 
-<script src='https://prismjs.com/prism.js'></script>
-<script src='../js/toc.js'></script>
-
-</body>
+<script src="https://prismjs.com/prism.js"></script>
+  </body>
 </html>
 

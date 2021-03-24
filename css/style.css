@@ -3,6 +3,8 @@
 }
 
 pre {
+    max-width:400px;
+    min-height:400px;
     max-height:400px;
     margin: 0 !important;
 }
@@ -59,12 +61,24 @@ a {
     top: 10px;
 }
 
-#toc ul {
-    list-style-type: none;
-    padding:0;
+.main-buttons a {
+    margin-right: 3px;
 }
 
-#toc .l1, #toc .l2 { font-weight: bold; }
-#toc .l2 { margin-left: 10px; }
-#toc .l3 { margin-left: 20px; }
-#toc .l4 { margin-left: 30px; }
+.bottom-content {
+    margin-top:100px;
+}
+
+.bottom-content img {
+    height:180px;
+    margin: auto;
+    display: block;
+}
+
+.bottom-content h1 {
+    text-align: center;
+    margin: 20px 0;
+    margin-top: 30px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding-bottom: 10px;
+}
