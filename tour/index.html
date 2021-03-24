@@ -226,6 +226,7 @@ print module::random(); // =&gt; 4
 </code></pre>
 <h3>Importing native dynamically-linked library (DLLs)</h3>
 <p>You can also import a dynamically linked library. On Unix systems, these files end with <code class='language-'>.so</code>. On Windows, these files end with <code class='language-'>.dll</code>. See <a href="/tests/dl-module"><code class='language-'>tests/dl-module</code></a> for an example of importing a C library from Aument.</p>
+<p>If the <code class='language-'>.lib</code> extension is used, Aument will load the library with the extension corresponding to the platform's library extension.</p>
 <p>If a DLL supports subpath imports, the importer can specify which subpath they want to import:</p>
 <pre><code class='language-'>import &quot;./libmodule.dll:subpath&quot;;
 </code></pre>
