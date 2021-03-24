@@ -3,10 +3,14 @@
 }
 
 pre {
+    max-height:400px;
+    margin: 0 !important;
+}
+
+pre.main {
     max-width:400px;
     min-height:400px;
     max-height:400px;
-    margin: 0 !important;
 }
 
 pre code {
