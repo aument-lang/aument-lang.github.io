@@ -38,7 +38,7 @@
       <div id='toc-col'>
         <h1 style='text-align:center;'>Table of contents</h1>
         <div id='toc'>
-        <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Importing_native_dynamically-linked_library_(DLLs)">Importing native dynamically-linked library (DLLs)</a></li></ul></li></ul></p>
+        <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Imports">Imports</a></li><li><a href="#Exports">Exports</a></li><li><a href="#Importing_native_DLLs">Importing native DLLs</a></li></ul></li></ul></p>
         </div>
       </div>
     </div>
@@ -197,6 +197,7 @@ op = .double;
 print op.(10);
 </code></pre>
 <h2 id="Modules">Modules</h2>
+<h3 id="Imports">Imports</h3>
 <p>You can import files using the <code class='language-au'>import</code> statement.</p>
 <pre><code class='language-au'>// importee.au
 print &quot;Hello World\n&quot;;
@@ -204,6 +205,11 @@ print &quot;Hello World\n&quot;;
 <pre><code class='language-au'>// importer.au
 import &quot;./importee.au&quot;; // prints out Hello World
 </code></pre>
+<p>Exported functions and classes are accessible under a <strong>module</strong>. You have to explicitly import a file as a module in order to use it:</p>
+<pre><code class='language-au'>import &quot;importee.au&quot; as module;
+print module::random(); // =&gt; 4
+</code></pre>
+<h3 id="Exports">Exports</h3>
 <p>All files are executed separately and you cannot directly use an imported file's variables/functions (unless exported). To export a function, use the <code class='language-au'>export</code> statement:</p>
 <pre><code class='language-au'>// importee.au
 export def random() {
@@ -215,12 +221,8 @@ export def random() {
     val name;
 }
 </code></pre>
-<p>Exported functions and classes are accessible under a <strong>module</strong>. You have to explicitly import a file as a module in order to use it:</p>
-<pre><code class='language-au'>import &quot;importee.au&quot; as module;
-print module::random(); // =&gt; 4
-</code></pre>
-<h3 id="Importing_native_dynamically-linked_library_(DLLs)">Importing native dynamically-linked library (DLLs)</h3>
-<p>You can also import a dynamically linked library. On Unix systems, these files end with <code class='language-au'>.so</code>. On Windows, these files end with <code class='language-au'>.dll</code>. See <a href="/tests/dl-module"><code class='language-au'>tests/dl-module</code></a> for an example of importing a C library from Aument.</p>
+<h3 id="Importing_native_DLLs">Importing native DLLs</h3>
+<p>You can also import native, dynamically linked libraries (DLLs). On Unix systems, these files end with <code class='language-au'>.so</code>. On Windows, these files end with <code class='language-au'>.dll</code>. See <a href="/tests/dl-module"><code class='language-au'>tests/dl-module</code></a> for an example of importing a C library from Aument.</p>
 <p>If the <code class='language-au'>.lib</code> extension is used, Aument will load the library with the extension corresponding to the platform's library extension.</p>
 <p>If a DLL supports subpath imports, the importer can specify which subpath they want to import:</p>
 <pre><code class='language-au'>import &quot;./libmodule.dll:subpath&quot;;
