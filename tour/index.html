@@ -38,7 +38,7 @@
       <div id='toc-col'>
         <h1 style='text-align:center;'>Table of contents</h1>
         <div id='toc'>
-        <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Imports">Imports</a></li><li><a href="#Exports">Exports</a></li><li><a href="#Importing_native_DLLs">Importing native DLLs</a></li></ul></li></ul></p>
+        <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Operators">Operators</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Imports">Imports</a></li><li><a href="#Exports">Exports</a></li><li><a href="#Importing_native_DLLs">Importing native DLLs</a></li></ul></li></ul></p>
         </div>
       </div>
     </div>
@@ -46,14 +46,21 @@
 <h2 id="Primitive_values">Primitive values</h2>
 <p>Like many scripting languages, Aument supports the usual core data types: integers (<code class='language-au'>3</code>), floats (<code class='language-au'>3.14</code>), strings (<code class='language-au'>&quot;Hello World&quot;</code>), booleans (<code class='language-au'>true</code> and <code class='language-au'>false</code>) and a none value (<code class='language-au'>nil</code>).</p>
 <p>For strings, standard escape sequences work (only <code class='language-au'>\n</code> is implemented however).</p>
-<p>You can also do some binary operations, add <code class='language-au'>+</code>, subtraction <code class='language-au'>-</code>, multiply <code class='language-au'>*</code>, division <code class='language-au'>/</code> and modulo <code class='language-au'>%</code> are currently supported.</p>
+<h2 id="Operators">Operators</h2>
+<p>Aument supports the binary operations: add <code class='language-au'>+</code>, subtraction <code class='language-au'>-</code>, multiply <code class='language-au'>*</code>, division <code class='language-au'>/</code> and modulo <code class='language-au'>%</code>:</p>
 <pre><code class='language-au'>1 + 1; // Results in 2
 </code></pre>
 <p>Comparisons (<code class='language-au'>&lt;</code>, <code class='language-au'>&gt;</code>, <code class='language-au'>&lt;=</code>, <code class='language-au'>&gt;=</code>, <code class='language-au'>==</code>, <code class='language-au'>!=</code> operators) work as you'd expect:</p>
 <pre><code class='language-au'>1 &lt; 2; // (true)
 </code></pre>
-<p>You can also use boolean operators (logical and <code class='language-au'>&amp;&amp;</code> and logical or <code class='language-au'>||</code>):</p>
+<p>You can also use boolean operators: logical AND (<code class='language-au'>&amp;&amp;</code>) and logical OR (<code class='language-au'>||</code>):</p>
 <pre><code class='language-au'>true &amp;&amp; false; // false
+</code></pre>
+<p>Aument also supports unary operators: bitwise NOT (<code class='language-au'>~</code>), logical NOT (<code class='language-au'>!</code>), and negation (<code class='language-au'>-</code>):</p>
+<pre><code class='language-au'>~1; // =&gt; -2
+</code></pre>
+<p>The negation operator can only be used inside brackets:</p>
+<pre><code class='language-au'>(-1); // -1
 </code></pre>
 <h2 id="Arrays_and_tuples">Arrays and tuples</h2>
 <p>You can define arrays by using the literal syntax:</p>
