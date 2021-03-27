@@ -1,66 +1,72 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The Aument Language is a fast and lightweight dynamic scripting language.">
-    <title>The Aument Language</title>
 
-    <link rel="icon" href="img/favicon16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="img/favicon32.png" sizes="32x32" type="image/png">
-    <meta name="theme-color" content="#ffcd2d">
-    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/prism-coy.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    
-<div class="container container-sm" style="margin: 20px auto; padding:0;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Aument Language is a fast and lightweight dynamic scripting language.">
+  <title>The Aument Language</title>
+
+  <link rel="icon" href="img/favicon16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="img/favicon32.png" sizes="32x32" type="image/png">
+  <meta name="theme-color" content="#ffcd2d">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/prism-coy.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container container-sm" style="margin: 20px auto; padding:0;">
     <nav class="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><b>aument</b></a>
+        <a class="navbar-brand" href="/"><b>aument</b></a>
         <ul>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="/updates">Updates</a></li>
-            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/tour">Tour</a></li>
         </ul>
       </div>
     </nav>
-</div>
-
-<main class="container-fluid" id="main-container">
-  <div class="container">
-<div class="row">
-  <div class="col">
-  <table style="height:100%;">
-  <tr>
-  <td>
-    <h1>The Aument Language</h1>
-<p class="lead">The Aument Language is a work-in-progress, dynamically-typed scripting language that is <strong>performant</strong>, <strong>simple</strong> and <strong>easy to use</strong>. It can be interpreted like Python or compiled into native C code.</p>
-<p>Binary distributions available for Linux and Windows.</p>
-    <p class="main-buttons">
-        <a class="btn btn-lg btn-primary" href="https://github.com/aument-lang/aument/releases" role="button">Latest release &raquo;</a>
-        <a class="btn btn-lg btn-outline-secondary" href="/tour" role="button">Tour of Aument</a>
-        <a class="btn btn-lg btn-outline-secondary" href="https://github.com/aument-lang/aument" role="button">Source code</a>
-    </p>
-  </td>
-  </tr>
-  </table>
   </div>
-    <div class="col col-4">
-      <table style="height:100%;width:100%">
-      <tr>
-      <td>
-        <select id="code-selector" style="margin-bottom: 5px;">
-          <option value="class.au">Classes</option>
-          <option value="brainfuck.au">Brainf!ck</option>
-          <option value="fib-rec.au">Recursive fibonacci</option>
-          <option value="fizzbuzz.au">Fizzbuzz</option>
-        </select>
-<pre class="main"><code class="language-au" id="code-viewer">class Human {
+
+  <main class="container-fluid" id="main-container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <table style="height:100%;">
+            <tr>
+              <td>
+                <h1>The Aument Language</h1>
+                <p class="lead">The Aument Language is a work-in-progress, dynamically-typed scripting language that is
+                  <strong>performant</strong>, <strong>simple</strong> and <strong>easy to use</strong>. It can be
+                  interpreted like Python or compiled into native C code.
+                </p>
+                <p>Binary distributions available for Linux and Windows.</p>
+                <p class="main-buttons">
+                  <a class="btn btn-lg btn-primary" href="https://github.com/aument-lang/aument/releases"
+                    role="button">Latest release &raquo;</a>
+                  <a class="btn btn-lg btn-outline-secondary" href="/tour" role="button">Tour of Aument</a>
+                  <a class="btn btn-lg btn-outline-secondary" href="https://github.com/aument-lang/aument"
+                    role="button">Source code</a>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col col-4">
+          <table style="height:100%;width:100%">
+            <tr>
+              <td>
+                <select id="code-selector" style="margin-bottom: 5px;">
+                  <option value="class.au">Classes</option>
+                  <option value="brainfuck.au">Brainf!ck</option>
+                  <option value="fib-rec.au">Recursive fibonacci</option>
+                  <option value="fizzbuzz.au">Fizzbuzz</option>
+                </select>
+                <pre class="main"><code class="language-au" id="code-viewer">class Human {
 	var name;
 }
 
@@ -88,65 +94,113 @@ say(alice);
 say(bob);
 say(cat);
 </code></pre>
-</td></tr></table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="container bottom-container">
+    <div class="row header">
+      <h2>aument is...</h2>
+    </div>
+    <div class="row features-content">
+      <div class="col-4">
+        <h1>Fast</h1>
+        <p>Aument's interpreter is written in C. It features a single-pass parser, compact bytecode and uses
+          cache-friendly data structures to represent objects.</p>
+        <p>Aument can also be compiled into C. Through the power of a C compiler, Aument programs can get an enormous
+          speed
+          boost when compiled.</p>
+      </div>
+      <div class="col-4">
+        <h1>Simple</h1>
+        <p>Unlike many other scripting languages, it only has flat, compound data structures with first-class functions.
+          Aument includes language features such as <a href="./tour/#Dynamic_dispatch">dynamic dispatch</a> and <a href="./tour/#Dot_binding">function values</a>,
+          helping users to build functional, software.</p>
+      </div>
+      <div class="col-4">
+        <h1>Embeddable</h1>
+        <p>Aument's runtime is embeddable. It doesn't need any libraries other than the standard C library to be built.
+          It also uses reference counting, making it easy for cross-language memory management.
+        </p>
+        <p>Aument's standard library is also modular: Users can build Aument without many of its optional libraries.</p>
+      </div>
+    </div>
+    <div class="row features-content" style="width: 50%;margin: 30px auto;">
+      <h1 style="text-align: center;">🚧 A work in progress 🚧</h1>
+      <p>Aument is the work of one person and is in active development, things may break at any time and many features are planned or in development:</p>
+      <ul style="width:60%;margin:auto;margin-bottom: 20px;">
+        <li>Concurrency through the <a href="https://github.com/aument-lang/pkg-tasks">tasks library</a></li>
+        <li>Parallelism</li>
+        <li>Type inference</li>
+        <li>Compilation to lower IR for better optimization</li>
+      </ul>
+      <p>Aument is in alpha with a new release every week.</p>
     </div>
   </div>
 
-</div>
+  <div class="container bottom-container">
+    <div class="row header">
+      <h2>developing with aument</h2>
+    </div>
+    <div class="row bottom-content">
+      <div class="col-4">
+        <img src="./img/code-solid.svg" alt="Leet coding">
+        <h1>Libraries</h1>
+        <p>With a total of <a href="https://github.com/fermian">1 developer</a>, Aument boasts a vibrant ecosystem with
+          libraries in active development:</p>
+        <ul>
+          <li><a href="https://github.com/aument-lang/aument/tree/main/src/stdlib">The Standard Library</a> &ndash; the core of the Aument language</li>
+          <li><a href="https://github.com/aument-lang/pkg-tasks">Tasks</a> &ndash; asynchronous programming for Aument with libuv</li>
+          <li><a href="https://github.com/aument-lang/pkg-random">Random</a> &ndash; the first library written in Aument for generating random numbers</li>
+          <li><em>and more to come!</em></li>
+        </ul>
+      </div>
+      <div class="col-4">
+        <img src="./img/cuttlefish-brands.svg" alt="C logo">
+        <h1>C/C++ integration</h1>
+        <p>Aument is written in C, through the C ABI it can bind with many existing programming languages (once I write
+          all the bindings for it 🙃).</p>
+        <p>Libraries can use Aument's C API to expose their functions as modules. Aument can import these libraries as
+          <code>.dll</code> or <code>.so</code> files.
+        </p>
+        <p>C++ bindings are currently <a href="https://github.com/aument-lang/aument-cpp">in the works</a>.</p>
+      </div>
+      <div class="col-4">
+        <img src="./img/book-solid.svg" alt="Book">
+        <h1>Read the Manuals</h1>
+        <ul>
+          <li><a href="https://github.com/aument-lang/aument/blob/main/docs/tour.md">A brief tour</a></li>
+          <li><a href="https://github.com/aument-lang/aument/blob/main/docs/cmdline.md">Command line reference</a></li>
+          <li><a href="https://github.com/aument-lang/aument/blob/main/docs/au-stdlib.md">Standard library reference</a>
+          </li>
+          <li><a href="https://github.com/aument-lang/aument/blob/main/docs/c-api.md">C API reference</a></li>
+          <li><a href="https://github.com/aument-lang/aument/blob/main/docs/architecture.md">Internal architecture</a>
+          </li>
+        </ul>
+        <p>If you have any questions at all, feel free to post it in the <a
+            href="https://github.com/aument-lang/aument/issues">issues page</a>.</p>
+      </div>
+    </div>
+  </div>
 
-</main>
-
-<div class="container bottom-content">
-<div class="row">
-  <div class="col-4">
-    <img src="./img/code-solid.svg" alt="Leet coding">
-    <h1>Let's develop Aument</h1>
-    <p>With a total of <a href="https://github.com/fermian">1 developer</a>, Aument boasts a vibrant ecosystem with libraries in active development:</p>
-    <ul>
-      <li><a href="">The Standard Library</a> &ndash; the core of the Aument language</li>
-      <li><a href="">Tasks</a> &ndash; asynchronous programming for Aument with libuv</li>
-      <li><a href="">Random</a> &ndash; the first library written in Aument for generating random numbers</li>
-      <li><em>and more to come!</em></li>
-    </ul>
-  </div>
-  <div class="col-4">
-    <img src="./img/cuttlefish-brands.svg" alt="C logo">
-    <h1>C/C++ integration</h1>
-    <p>Aument is written in C, through the C ABI it can bind with many existing programming languages (once I write all the bindings for it 🙃).</p>
-    <p>Libraries can use Aument's C API to expose their functions as modules. Aument can import these libraries as <code>.dll</code> or <code>.so</code> files.</p>
-    <p>C++ bindings are currently <a href="https://github.com/aument-lang/aument-cpp">in the works</a>.</p>
-  </div>
-  <div class="col-4">
-    <img src="./img/book-solid.svg" alt="Book">
-    <h1>Read the Manuals</h1>
-    <ul>
-      <li><a href="https://github.com/aument-lang/aument/blob/main/docs/tour.md">A brief tour</a></li>
-      <li><a href="https://github.com/aument-lang/aument/blob/main/docs/cmdline.md">Command line reference</a></li>
-      <li><a href="https://github.com/aument-lang/aument/blob/main/docs/au-stdlib.md">Standard library reference</a></li>
-      <li><a href="https://github.com/aument-lang/aument/blob/main/docs/c-api.md">C API reference</a></li>
-      <li><a href="https://github.com/aument-lang/aument/blob/main/docs/architecture.md">Internal architecture</a></li>
-    </ul>
-    <p>If you have any questions at all, feel free to post it in the <a href="https://github.com/aument-lang/aument/issues">issues page</a>.</p>
-  </div>
-</div>
-  <div class="container" style="text-align: center; margin-top: 80px;">
-    <img src="./img/running-solid.svg" alt="Running">
-    <h1 style="border: 0 none;">🚧 new release every week 🚧</h1>
-    <h2><em>Stay tuned!</em></h2>
-  </div>
-</div>
-
-<footer class="bd-footer p-3 p-md-5 text-center">
-    <p class="mb-0">Icons from Font Awesome with color changed, licensed under <a href="https://fontawesome.com/license/free">CC BY 4.0</a>.</p>
+  <footer class="bd-footer p-3 p-md-5 text-center">
+    <p class="mb-0">Icons from Font Awesome with color changed, licensed under <a
+        href="https://fontawesome.com/license/free">CC BY 4.0</a>.</p>
     <br>
     <p class="mb-0">Language is licensed under Apache 2.0.</p>
     <p class="mb-0"><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
-  </div>
-</footer>
+    </div>
+  </footer>
 
-<script src="https://prismjs.com/prism.js"></script>
-<script src="js/codes.js"></script>
-<script src="js/main.js"></script>
-  </body>
+  <script src="https://prismjs.com/prism.js"></script>
+  <script src="js/codes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
-

@@ -1,48 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A tour of the Aument language.">
-    <title>A tour of the Aument language</title>
 
-    <link rel="icon" href="../img/favicon16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="../img/favicon32.png" sizes="32x32" type="image/png">
-    <meta name="theme-color" content="#ffcd2d">
-    
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/prism.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/content.css" rel="stylesheet">
-  </head>
-  <body>
-    
-<div class="container container-sm" style="margin: 20px auto; padding:0;">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A tour of the Aument language.">
+  <title>A tour of the Aument language</title>
+
+  <link rel="icon" href="../img/favicon16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="../img/favicon32.png" sizes="32x32" type="image/png">
+  <meta name="theme-color" content="#ffcd2d">
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/prism.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/content.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container container-sm" style="margin: 20px auto; padding:0;">
     <nav class="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><b>aument</b></a>
+        <a class="navbar-brand" href="/"><b>aument</b></a>
         <ul>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="/updates">Updates</a></li>
-            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" aria-current="page" href="/tour">Tour</a></li>
         </ul>
       </div>
     </nav>
-</div>
+  </div>
 
-<main class="container">
-  <div class="row">
-    <div class='col-4'>
-      <div id='toc-col'>
-        <h1 style='text-align:center;'>Table of contents</h1>
-        <div id='toc'>
-        <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Operators">Operators</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Imports">Imports</a></li><li><a href="#Exports">Exports</a></li><li><a href="#Importing_native_DLLs">Importing native DLLs</a></li></ul></li></ul></p>
+  <main class="container">
+    <div class="row">
+      <div class='col-4'>
+        <div id='toc-col'>
+          <h1 style='text-align:center;'>Table of contents</h1>
+          <div id='toc'>
+            <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Operators">Operators</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Imports">Imports</a></li><li><a href="#Exports">Exports</a></li><li><a href="#Importing_native_DLLs">Importing native DLLs</a></li></ul></li></ul></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class='col-8' id='content'><h1 id="A_brief_tour_of_Aument">A brief tour of Aument</h1>
+      <div class='col-8' id='content'><h1 id="A_brief_tour_of_Aument">A brief tour of Aument</h1>
 <h2 id="Primitive_values">Primitive values</h2>
 <p>Like many scripting languages, Aument supports the usual core data types: integers (<code class='language-au'>3</code>), floats (<code class='language-au'>3.14</code>), strings (<code class='language-au'>&quot;Hello World&quot;</code>), booleans (<code class='language-au'>true</code> and <code class='language-au'>false</code>) and a none value (<code class='language-au'>nil</code>).</p>
 <p>For strings, standard escape sequences work (only <code class='language-au'>\n</code> is implemented however).</p>
@@ -236,21 +237,21 @@ export def random() {
 </code></pre>
 <p>The example above imports the module in the library <code class='language-au'>./libmodule.dll</code> specified by the subpath <code class='language-au'>subpath</code>.</p>
 </div>
-  </div>
-</div>
-</main>
-<footer class="bd-footer p-3 p-md-5 text-center">
-  <div class="container">
-    <ul class="bd-footer-links ps-0 mb-3">
-      <li class="d-inline-block"><a href="https://github.com/aument-lang/aument">GitHub</a></li>
-      <li class="d-inline-block ms-3"><a href="https://gitlab.com/aument-lang/aument">GitLab (mirror)</a></li>
-    </ul>
-    <p class="mb-0">Language is licensed under Apache 2.0.</p>
-    <p class="mb-0"><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
-  </div>
-</footer>
+    </div>
+    </div>
+  </main>
+  <footer class="bd-footer p-3 p-md-5 text-center">
+    <div class="container">
+      <ul class="bd-footer-links ps-0 mb-3">
+        <li class="d-inline-block"><a href="https://github.com/aument-lang/aument">GitHub</a></li>
+        <li class="d-inline-block ms-3"><a href="https://gitlab.com/aument-lang/aument">GitLab (mirror)</a></li>
+      </ul>
+      <p class="mb-0">Language is licensed under Apache 2.0.</p>
+      <p class="mb-0"><small><em>&ndash; thank you to the Aument contributors &ndash;</em></small></p>
+    </div>
+  </footer>
 
-<script src="https://prismjs.com/prism.js"></script>
-  </body>
+  <script src="https://prismjs.com/prism.js"></script>
+</body>
+
 </html>
-
