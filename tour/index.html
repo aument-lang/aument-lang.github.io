@@ -39,7 +39,7 @@
         <div id='toc-col'>
           <h1 style='text-align:center;'>Table of contents</h1>
           <div id='toc'>
-            <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Operators">Operators</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Imports">Imports</a></li><li><a href="#Exports">Exports</a></li><li><a href="#Importing_native_DLLs">Importing native DLLs</a></li></ul></li></ul></p>
+            <p><ul><li><a href="#Primitive_values">Primitive values</a></li><li><a href="#Operators">Operators</a></li><li><a href="#Arrays_and_tuples">Arrays and tuples</a></li><li><a href="#Variables">Variables</a><ul><li><a href="#Dynamic_types,_static_names">Dynamic types, static names</a></li></ul></li><li><a href="#Control_Flow">Control Flow</a></li><li><a href="#Input/output">Input/output</a></li><li><a href="#Functions">Functions</a></li><li><a href="#Classes">Classes</a><ul><li><a href="#Creating_a_new_instance">Creating a new instance</a></li><li><a href="#Methods_and_private_variables">Methods and private variables</a><ul><li><a href="#Dynamic_dispatch">Dynamic dispatch</a></li></ul></li><li><a href="#Dot_calls">Dot calls</a></li><li><a href="#Dot_binding">Dot binding</a></li></ul></li><li><a href="#Modules">Modules</a><ul><li><a href="#Imports">Imports</a></li><li><a href="#Exports">Exports</a></li><li><a href="#Importing_native_DLLs">Importing native DLLs</a></li></ul></li></ul></p>
           </div>
         </div>
       </div>
@@ -150,8 +150,14 @@ def a(){}
 <p>You can define a empty class like so:</p>
 <pre><code class='language-au'>class EmptyClass;
 </code></pre>
-<p>Classes are like any other value. You can create an empty one using the <code class='language-au'>new</code> keyword:</p>
+<h3 id="Creating_a_new_instance">Creating a new instance</h3>
+<p>You can create an empty instance of a class using the <code class='language-au'>new</code> keyword:</p>
 <pre><code class='language-au'>alice = new Human;
+</code></pre>
+<p>You can pre-initialize an instance's private variables:</p>
+<pre><code class='language-au'>alice = new Human {
+    name: &quot;Alice&quot;
+};
 </code></pre>
 <p>Just like functions, if you try to use a undeclared class, it will error out after parsing.</p>
 <h3 id="Methods_and_private_variables">Methods and private variables</h3>
