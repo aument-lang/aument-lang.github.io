@@ -62,37 +62,36 @@
               <td>
                 <select id="code-selector" style="margin-bottom: 5px;">
                   <option value="class.au">Classes</option>
-                  <option value="brainfuck.au">Brainf!ck</option>
+                  <option value="mandelbrot.au">Mandelbrot</option>
+                  <option value="brainfuck.au">Brainfuck</option>
                   <option value="fib.au">Fibonacci</option>
                   <option value="fizzbuzz.au">Fizzbuzz</option>
                 </select>
-                <pre class="main"><code class="language-au" id="code-viewer">class Human {
-	var name;
+                <pre class="main"><code class="language-swift" id="code-viewer">struct Human { name }
+
+func human(name) {
+  return new Human {
+    name: name
+  };
 }
 
-def (self: Human) init(name) {
-	@name = name;
+func (self: Human) say() {
+  print "I'm ", @name, "\n";
 }
 
-class Cat {}
+struct Cat;
 
-def (self: Human) say() {
-	print "I'm ", @name, "\n";
+func (self: Cat) say() {
+  print "meow!";
 }
 
-def (self: Cat) say() {
-	print "meow!";
-}
+let alice = human("Alice");
+let bob = human("Bob");
+let cat = new Cat;
 
-alice = new Human;
-init(alice, "Alice");
-bob = new Human;
-init(bob, "Bob");
-cat = new Cat;
-
-say(alice);
-say(bob);
-say(cat);
+alice.say();
+bob.say();
+cat.say();                  
 </code></pre>
               </td>
             </tr>
@@ -205,7 +204,7 @@ say(cat);
     </div>
   </footer>
 
-  <script src="https://prismjs.com/prism.js"></script>
+  <script src="js/prism.js"></script>
   <script src="js/codes.js"></script>
   <script src="js/main.js"></script>
 </body>
